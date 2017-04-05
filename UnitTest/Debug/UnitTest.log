@@ -1,2 +1,14 @@
-﻿  main.cpp
-  UnitTest.vcxproj -> C:\Users\s171043\Desktop\New folder\Debug\UnitTest.exe
+﻿  Matrix4.cpp
+c:\users\s171043\documents\github\aie-assignment-mathlib\unittest\matrix4.cpp(110): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\s171043\documents\github\aie-assignment-mathlib\unittest\matrix4.cpp(111): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\s171043\documents\github\aie-assignment-mathlib\unittest\matrix4.cpp(114): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\s171043\documents\github\aie-assignment-mathlib\unittest\matrix4.cpp(115): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\s171043\documents\github\aie-assignment-mathlib\unittest\matrix4.cpp(126): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\s171043\documents\github\aie-assignment-mathlib\unittest\matrix4.cpp(128): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\s171043\documents\github\aie-assignment-mathlib\unittest\matrix4.cpp(134): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\s171043\documents\github\aie-assignment-mathlib\unittest\matrix4.cpp(136): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\s171043\documents\github\aie-assignment-mathlib\unittest\matrix4.cpp(147): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\s171043\documents\github\aie-assignment-mathlib\unittest\matrix4.cpp(148): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\s171043\documents\github\aie-assignment-mathlib\unittest\matrix4.cpp(151): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\s171043\documents\github\aie-assignment-mathlib\unittest\matrix4.cpp(152): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  UnitTest.vcxproj -> C:\Users\s171043\Documents\GitHub\AIE-Assignment-MathLib\Debug\UnitTest.exe

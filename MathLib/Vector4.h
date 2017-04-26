@@ -2,76 +2,86 @@
 #pragma once
 #include "math.h"
 
+#ifdef STATIC_LIB
+	#define MATH_DLL
+#else
+	#ifdef DLL_EXPORT
+		#define MATH_DLL __declspec(dllexport)
+	#else
+		#define MATH_DLL __declspec(dllimport)
+	#endif
+#endif
+
 // Vector2 object
 class Vector4
 {
 public:
 
 	// Default Constructor
-	Vector4();
+	MATH_DLL Vector4();
 
 	// Constructor passing in 2 floats
-	Vector4(float x, float y, float z, float w);
+	MATH_DLL Vector4(float x, float y, float z, float w);
 
 	// Default Destructor
-	~Vector4();
+	MATH_DLL ~Vector4();
 
 	// Addition
-	Vector4 operator+(const Vector4& rhs);
+	MATH_DLL Vector4 operator+(const Vector4& rhs);
 
 	// Subtraction
-	Vector4 operator-(const Vector4& rhs);
+	MATH_DLL Vector4 operator-(const Vector4& rhs);
 
 	// Divide
-	Vector4 operator/(const float rhs);
+	MATH_DLL Vector4 operator/(const float rhs);
 
 	// Multiply vector by float
-	Vector4 operator*(const float rhs);
+	MATH_DLL Vector4 operator*(const float rhs);
 
 	// Dot product
-	float dot(const Vector4& rhs);
+	MATH_DLL float dot(const Vector4& rhs);
 
 	// cross product
-	Vector4 cross(const Vector4& rhs);
+	MATH_DLL Vector4 cross(const Vector4& rhs);
 
 	// Magnititude
-	float magnitude();
+	MATH_DLL float magnitude();
 
 	// Magnititude Squared
-	float MagnititudeSquared();
+	MATH_DLL float MagnititudeSquared();
 
 	// Normalise
-	void normalise();
+	MATH_DLL void normalise();
 
 	// Normalised
-	static Vector4 Normalised(Vector4 data);
+	MATH_DLL static Vector4 Normalised(Vector4 data);
 
 	// Allow negative vector
-	Vector4 operator-();
+	MATH_DLL Vector4 operator-();
 
 	// Greater then operator
-	bool operator>(const Vector4 rhs);
+	MATH_DLL bool operator>(const Vector4 rhs);
 
 	// Less then operator
-	bool operator<(const Vector4 rhs);
+	MATH_DLL bool operator<(const Vector4 rhs);
 
 	// plus equels
-	Vector4 operator+=(const Vector4& rhs);
+	MATH_DLL Vector4 operator+=(const Vector4& rhs);
 
 	// minus equels
-	Vector4 operator-=(const Vector4& rhs);
+	MATH_DLL Vector4 operator-=(const Vector4& rhs);
 
 	// Multiply equels
-	Vector4 operator*=(const float rhs);
+	MATH_DLL Vector4 operator*=(const float rhs);
 
 	// Divide equels
-	Vector4 operator/=(const float rhs);
+	MATH_DLL Vector4 operator/=(const float rhs);
 
 	// Sub-script operator returning a reference 
-	float& operator[](const int rhs);
+	MATH_DLL float& operator[](const int rhs);
 
 	// Cast operator to float pointer
-	operator float*();
+	MATH_DLL operator float*();
 
 	// declare public floats for x and y
 	float x;
@@ -81,4 +91,4 @@ public:
 };
 
 // Float multiplyed by vector ( out side of class so we can order )
-Vector4 operator*(float lhs, const Vector4& rhs);
+MATH_DLL Vector4 operator*(float lhs, const Vector4& rhs);

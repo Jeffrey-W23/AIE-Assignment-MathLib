@@ -1,6 +1,8 @@
 // #include, using, etc
 #pragma once
 #include "math.h"
+#include "Vector2.h"
+#include "Vector3.h"
 
 #ifdef STATIC_LIB
 	#define MATH_DLL
@@ -82,6 +84,12 @@ public:
 
 	// Cast operator to float pointer
 	MATH_DLL operator float*();
+
+	// Cast from a Vector3 to Vector2
+	MATH_DLL Vector4 operator= (const Vector2& rhs);
+
+	// Cast from a Vector4 to Vector2
+	MATH_DLL Vector4 operator= (const Vector3& rhs);
 
 	// declare public floats for x and y
 	float x;

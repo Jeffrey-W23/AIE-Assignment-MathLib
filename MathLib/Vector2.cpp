@@ -199,3 +199,39 @@ Vector2::operator float*()
 {
 	return &x;
 }
+
+// Cast from a Vector3 to Vector2
+Vector2 Vector2::operator= (const Vector3& rhs)
+{
+	Vector2 result;
+	result.x = rhs.x;
+	result.y = rhs.y;
+
+	return result;
+}
+
+// Cast from a Vector4 to Vector2
+Vector2 Vector2::operator= (const Vector4& rhs)
+{
+	Vector2 result;
+	result.x = rhs.x;
+	result.y = rhs.y;
+
+	return result;
+}
+
+// Calculate the normal of a face
+Vector2 Vector2::CalcNormal(Vector2 pos)
+{
+	Vector2 vec;
+	Vector2 res;
+
+	vec.x = pos.x - x;
+	vec.y = pos.y - y;
+	vec.normalise();
+
+	res.x = vec.y;
+	res.y = -vec.x;
+
+	return res;
+}

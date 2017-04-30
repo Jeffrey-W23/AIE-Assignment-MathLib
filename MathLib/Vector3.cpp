@@ -226,3 +226,25 @@ Vector3::operator float*()
 {
 	return &x;
 }
+
+// Cast from a Vector2 to Vector3
+Vector3 Vector3::operator= (const Vector2& rhs)
+{
+	Vector3 result;
+	result.x = rhs.x;
+	result.y = rhs.y;
+	result.z = 0.0f;
+
+	return result;
+}
+
+// Cast from a Vector4 to Vector3
+Vector3 Vector3::operator= (const Vector4& rhs)
+{
+	Vector3 result;
+	result.x = rhs.x;
+	result.y = rhs.y;
+	result.z = rhs.z;
+
+	return result;
+}

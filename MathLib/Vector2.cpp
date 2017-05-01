@@ -201,21 +201,21 @@ Vector2::operator float*()
 }
 
 // Cast from a Vector3 to Vector2
-Vector2 Vector2::operator= (const Vector3& rhs)
+Vector2::operator Vector3()
 {
-	Vector2 result;
-	result.x = rhs.x;
-	result.y = rhs.y;
+	Vector3 result;
+	result.x = x;
+	result.y = y;
 
 	return result;
 }
 
 // Cast from a Vector4 to Vector2
-Vector2 Vector2::operator= (const Vector4& rhs)
+Vector2::operator Vector4()
 {
-	Vector2 result;
-	result.x = rhs.x;
-	result.y = rhs.y;
+	Vector4 result;
+	result.x = x;
+	result.y = y;
 
 	return result;
 }
@@ -234,4 +234,57 @@ Vector2 Vector2::CalcNormal(Vector2 pos)
 	res.y = -vec.x;
 
 	return res;
+}
+
+// Returns the smallest components of two vectors.
+Vector2 Vector2::Min(Vector2 rhs)
+{
+	Vector2 result;
+
+	if (x > rhs.x)
+		result.x = x;
+	else
+		result.x = rhs.x;
+
+	if (y > rhs.y)
+		result.y = y;
+	else
+		result.y = rhs.y;
+
+	return result;
+}
+
+// Returns the largest components of two vectors.
+Vector2 Vector2::Max(Vector2 rhs)
+{
+	Vector2 result;
+
+	if (x < rhs.x)
+		result.x = x;
+	else
+		result.x = rhs.x;
+
+	if (y < rhs.y)
+		result.y = y;
+	else
+		result.y = rhs.y;
+
+	return result;
+}
+
+// Clamping
+Vector2 Vector2::Clamp(Vector2 min, Vector2 max)
+{
+	Vector2 result;
+
+	result = this->Min(min);
+	result = result.Max(max);
+
+	return result;
+}
+
+// Lerp
+Vector2 Vector2::Lerp(Vector2 a, Vector2 b, float t)
+{
+	return (a + b) * t;
 }

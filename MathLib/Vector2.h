@@ -82,14 +82,26 @@ public:
 	// Cast operator to float pointer
 	MATH_DLL operator float*();
 
-	// Cast from a Vector3 to Vector2
-	MATH_DLL Vector2 operator= (const Vector3& rhs);
+	// Cast from a Vector2 to Vector3
+	MATH_DLL operator Vector3 ();
 
-	// Cast from a Vector4 to Vector2
-	MATH_DLL Vector2 operator= (const Vector4& rhs);
+	// Cast from a Vector2 to Vector4
+	MATH_DLL operator Vector4 ();
 
 	// Calculate the normal of a face
 	MATH_DLL Vector2 CalcNormal(Vector2 pos);
+
+	// Returns the smallest components of two vectors.
+	MATH_DLL Vector2 Min(Vector2 rhs);
+
+	// Returns the largest components of two vectors.
+	MATH_DLL Vector2 Max(Vector2 rhs);
+
+	// Clamping
+	MATH_DLL Vector2 Clamp(Vector2 min, Vector2 max);
+
+	// Lerp
+	MATH_DLL Vector2 Lerp(Vector2 a, Vector2 b, float t);
 
 	// declare public floats for x and y
 	float x;

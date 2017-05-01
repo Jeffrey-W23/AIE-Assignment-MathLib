@@ -228,23 +228,85 @@ Vector3::operator float*()
 }
 
 // Cast from a Vector2 to Vector3
-Vector3 Vector3::operator= (const Vector2& rhs)
+Vector3::operator Vector2()
 {
-	Vector3 result;
-	result.x = rhs.x;
-	result.y = rhs.y;
-	result.z = 0.0f;
+	Vector2 result;
+	result.x = x;
+	result.y = y;
 
 	return result;
 }
 
 // Cast from a Vector4 to Vector3
-Vector3 Vector3::operator= (const Vector4& rhs)
+Vector3::operator Vector4()
 {
-	Vector3 result;
-	result.x = rhs.x;
-	result.y = rhs.y;
-	result.z = rhs.z;
+	Vector4 result;
+	result.x = x;
+	result.y = y;
+	result.z = z;
 
 	return result;
+}
+
+// Returns the smallest components of two vectors.
+Vector3 Vector3::Min(Vector3 rhs)
+{
+	Vector3 result;
+
+	if (x > rhs.x)
+		result.x = x;
+	else
+		result.x = rhs.x;
+
+	if (y > rhs.y)
+		result.y = y;
+	else
+		result.y = rhs.y;
+
+	if (z > rhs.z)
+		result.z = z;
+	else
+		result.z = rhs.z;
+
+	return result;
+}
+
+// Returns the largest components of two vectors.
+Vector3 Vector3::Max(Vector3 rhs)
+{
+	Vector3 result;
+
+	if (x < rhs.x)
+		result.x = x;
+	else
+		result.x = rhs.x;
+
+	if (y < rhs.y)
+		result.y = y;
+	else
+		result.y = rhs.y;
+
+	if (z < rhs.z)
+		result.z = z;
+	else
+		result.z = rhs.z;
+
+	return result;
+}
+
+// Clamping
+Vector3 Vector3::Clamp(Vector3 min, Vector3 max)
+{
+	Vector3 result;
+
+	result = this->Min(min);
+	result = result.Max(max);
+
+	return result;
+}
+
+// Lerp
+Vector3 Vector3::Lerp(Vector3 a, Vector3 b, float t)
+{
+	return (a + b) * t;
 }

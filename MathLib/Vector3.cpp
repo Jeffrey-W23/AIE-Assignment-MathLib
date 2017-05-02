@@ -140,6 +140,8 @@ Vector3 Vector3::Normalised(Vector3 data)
 
 		return result;
 	}
+
+	return Vector3();
 }
 
 // Allow negative vector
@@ -227,25 +229,24 @@ Vector3::operator float*()
 	return &x;
 }
 
-// Cast from a Vector2 to Vector3
-Vector3::operator Vector2()
+// Calculate the normal of a face
+Vector3 Vector3::CalcNormal(Vector3 pos1, Vector3 pos2)
 {
-	Vector2 result;
-	result.x = x;
-	result.y = y;
+	Vector3 vec1;
+	Vector3 vec2;
 
-	return result;
-}
+	vec1.x = pos1.x - x;
+	vec1.y = pos1.y - y;
+	vec1.z = pos1.z - z;
+	
+	vec2.x = pos2.x - x;
+	vec2.y = pos2.y - y;
+	vec2.z = pos2.z - z;
 
-// Cast from a Vector4 to Vector3
-Vector3::operator Vector4()
-{
-	Vector4 result;
-	result.x = x;
-	result.y = y;
-	result.z = z;
+	Vector3 res = vec1.cross(vec2);
+	res.normalise();
 
-	return result;
+	return res;
 }
 
 // Returns the smallest components of two vectors.
@@ -309,4 +310,11 @@ Vector3 Vector3::Clamp(Vector3 min, Vector3 max)
 Vector3 Vector3::Lerp(Vector3 a, Vector3 b, float t)
 {
 	return (a + b) * t;
+}
+
+// Get distance between 2 vectors.
+float Vector3::Distance(Vector3 pos1, Vector3 pos2)
+{
+	Vector3 diff = pos1 - pos2;
+	return diff.magnitude();
 }

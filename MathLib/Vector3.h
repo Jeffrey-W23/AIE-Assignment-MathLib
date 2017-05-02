@@ -85,12 +85,6 @@ public:
 	// Cast operator to float pointer
 	MATH_DLL operator float*();
 
-	// Cast from a Vector2 to Vector3
-	MATH_DLL operator Vector2 ();
-
-	// Cast from a Vector4 to Vector3
-	MATH_DLL operator Vector4();
-
 	// Returns the smallest components of two vectors.
 	MATH_DLL Vector3 Min(Vector3 rhs);
 
@@ -102,6 +96,12 @@ public:
 
 	// Lerp
 	MATH_DLL Vector3 Lerp(Vector3 a, Vector3 b, float t);
+
+	// Calculate the normal of a face
+	MATH_DLL Vector3 CalcNormal(Vector3 pos1, Vector3 pos2);
+
+	// Get distance between 2 vectors.
+	MATH_DLL float Distance(Vector3 pos1, Vector3 pos2);
 
 	// declare public floats for x and y
 	float x;

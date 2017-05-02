@@ -1,4 +1,5 @@
 #include "Matrix4.h"
+#include "VectorCast.h"
 
 Matrix4::Matrix4()
 {
@@ -223,4 +224,40 @@ void Matrix4::setPostionf(const float x, const float y, const float z)
 	m[13] = y;
 	m[14] = z;
 	m[15] = 1;
+}
+
+
+void Matrix4::LookAt(Vector3 from, const Vector3 target, const Vector3 up)
+{
+	Vector3 zaxis = from - target;
+	zaxis.normalise();
+
+	Vector3 xaxis = zaxis.cross(up);
+	xaxis.normalise();
+
+	Vector3 yaxis = xaxis.cross(zaxis);
+	yaxis.normalise();
+
+	(*this)[0] = CastTo<Vector4>(xaxis);
+	(*this)[1] = CastTo<Vector4>(yaxis);
+	(*this)[2] = CastTo<Vector4>(zaxis);
+	(*this)[3] = CastTo<Vector4>(from);
+
+	m[15] = 1;
+}
+
+// Get Scale
+Vector4 Matrix4::getScale()
+{
+	Vector4 res;
+
+	Vector4 xcol(m[0], m[1], m[2], m[3]);
+	Vector4 ycol(m[4], m[5], m[6], m[7]);
+	Vector4 zcol(m[8], m[9], m[10], m[11]);
+
+	res.x = xcol.magnitude();
+	res.y = ycol.magnitude();
+	res.z = zcol.magnitude();
+
+	return res;
 }

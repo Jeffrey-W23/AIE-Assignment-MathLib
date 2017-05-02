@@ -33,5 +33,11 @@ public:
 	// Set Scale
 	MATH_DLL void setScale(const float x, const float y);
 
+	// Get Scale
+	MATH_DLL Vector2 getScale();
+
+	// Determinant
+	MATH_DLL float Determinant(const Matrix2& rhs);
+
 	float m[4];
 };

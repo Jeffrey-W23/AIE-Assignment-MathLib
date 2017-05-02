@@ -46,6 +46,9 @@ public:
 	// Set postion taking in a float
 	MATH_DLL void setPostionf(const float x, const float y);
 
+	// get scale
+	MATH_DLL Vector3 getScale();
+
 	float m[9];
 };
 

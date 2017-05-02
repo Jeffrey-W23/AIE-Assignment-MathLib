@@ -120,6 +120,8 @@ Vector2 Vector2::Normalised(Vector2 data)
 		
 		return result;
 	}
+
+	return Vector2();
 }
 
 // Allow negative vector
@@ -200,26 +202,6 @@ Vector2::operator float*()
 	return &x;
 }
 
-// Cast from a Vector3 to Vector2
-Vector2::operator Vector3()
-{
-	Vector3 result;
-	result.x = x;
-	result.y = y;
-
-	return result;
-}
-
-// Cast from a Vector4 to Vector2
-Vector2::operator Vector4()
-{
-	Vector4 result;
-	result.x = x;
-	result.y = y;
-
-	return result;
-}
-
 // Calculate the normal of a face
 Vector2 Vector2::CalcNormal(Vector2 pos)
 {
@@ -287,4 +269,11 @@ Vector2 Vector2::Clamp(Vector2 min, Vector2 max)
 Vector2 Vector2::Lerp(Vector2 a, Vector2 b, float t)
 {
 	return (a + b) * t;
+}
+
+// Get distance between 2 vectors.
+float Vector2::Distance(Vector2 pos1, Vector2 pos2)
+{
+	Vector2 diff =  pos1 - pos2;
+	return diff.magnitude(); // change for vector 3 and 4
 }

@@ -72,3 +72,25 @@ void Matrix2::setScale(const float x, const float y)
 	m[2] = 0;
 	m[3] = y;
 }
+
+// Get Scale
+Vector2 Matrix2::getScale()
+{
+	Vector2 res;
+
+	Vector2 xcol(m[0], m[1]);
+	Vector2 ycol(m[2], m[3]);
+
+	res.x = xcol.magnitude();
+	res.y = ycol.magnitude();
+
+	return res;
+}
+
+// Determinant
+float Matrix2::Determinant(const Matrix2& rhs)
+{
+	float res1 = (m[0] * m[3]);
+	float res2 = (m[2] * m[1]);
+	return res1 - res2;
+}

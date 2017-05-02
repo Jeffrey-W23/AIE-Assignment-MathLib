@@ -155,3 +155,19 @@ void Matrix3::setPostionf(const float x, const float y)
 	m[7] = y;
 	m[8] = 1;
 }
+
+// Get Scale
+Vector3 Matrix3::getScale()
+{
+	Vector3 res;
+
+	Vector3 xcol(m[0], m[1], m[2]);
+	Vector3 ycol(m[3], m[4], m[5]);
+	Vector3 zcol(m[6], m[7], m[8]);
+
+	res.x = xcol.magnitude();
+	res.y = ycol.magnitude();
+	res.z = zcol.magnitude();
+
+	return res;
+}

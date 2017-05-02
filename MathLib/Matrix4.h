@@ -46,6 +46,12 @@ public:
 	// Set postion taking in a float
 	MATH_DLL void setPostionf(const float x, const float y, const float z);
 
+	// Look at
+	MATH_DLL void LookAt(Vector3 from, const Vector3 target, const Vector3 up);
+
+	// get scale
+	MATH_DLL Vector4 getScale();
+
 	float m[16];
 };
 

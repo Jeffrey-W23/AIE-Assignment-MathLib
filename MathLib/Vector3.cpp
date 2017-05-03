@@ -254,17 +254,17 @@ Vector3 Vector3::Min(Vector3 rhs)
 {
 	Vector3 result;
 
-	if (x > rhs.x)
+	if (x < rhs.x)
 		result.x = x;
 	else
 		result.x = rhs.x;
 
-	if (y > rhs.y)
+	if (y < rhs.y)
 		result.y = y;
 	else
 		result.y = rhs.y;
 
-	if (z > rhs.z)
+	if (z < rhs.z)
 		result.z = z;
 	else
 		result.z = rhs.z;
@@ -277,17 +277,17 @@ Vector3 Vector3::Max(Vector3 rhs)
 {
 	Vector3 result;
 
-	if (x < rhs.x)
+	if (x > rhs.x)
 		result.x = x;
 	else
 		result.x = rhs.x;
 
-	if (y < rhs.y)
+	if (y > rhs.y)
 		result.y = y;
 	else
 		result.y = rhs.y;
 
-	if (z < rhs.z)
+	if (z > rhs.z)
 		result.z = z;
 	else
 		result.z = rhs.z;
@@ -317,4 +317,28 @@ float Vector3::Distance(Vector3 pos1, Vector3 pos2)
 {
 	Vector3 diff = pos1 - pos2;
 	return diff.magnitude();
+}
+
+// Equel to operator
+bool Vector3::operator==(const Vector3 rhs)
+{
+	return (x == rhs.x && y == rhs.y && z == rhs.z);
+}
+
+// Not equel to operator
+bool Vector3::operator!=(const Vector3 rhs)
+{
+	return (x != rhs.x && y != rhs.y && z != rhs.z);
+}
+
+// Greater then or equel or operator
+bool Vector3::operator>=(const Vector3 rhs)
+{
+	return (x >= rhs.x && y >= rhs.y && z >= rhs.z);
+}
+
+// Greater then or equel or operator
+bool Vector3::operator<=(const Vector3 rhs)
+{
+	return (x <= rhs.x && y <= rhs.y && z <= rhs.z);
 }

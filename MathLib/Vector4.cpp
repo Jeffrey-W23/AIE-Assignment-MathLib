@@ -271,34 +271,6 @@ Vector4 Vector4::Min(Vector4 rhs)
 {
 	Vector4 result;
 
-	if (x > rhs.x)
-		result.x = x;
-	else
-		result.x = rhs.x;
-
-	if (y > rhs.y)
-		result.y = y;
-	else
-		result.y = rhs.y;
-
-	if (z > rhs.z)
-		result.z = z;
-	else
-		result.z = rhs.z;
-
-	if (w > rhs.w)
-		result.w = w;
-	else
-		result.w = rhs.w;
-
-	return result;
-}
-
-// Returns the largest components of two vectors.
-Vector4 Vector4::Max(Vector4 rhs)
-{
-	Vector4 result;
-
 	if (x < rhs.x)
 		result.x = x;
 	else
@@ -315,6 +287,34 @@ Vector4 Vector4::Max(Vector4 rhs)
 		result.z = rhs.z;
 
 	if (w < rhs.w)
+		result.w = w;
+	else
+		result.w = rhs.w;
+
+	return result;
+}
+
+// Returns the largest components of two vectors.
+Vector4 Vector4::Max(Vector4 rhs)
+{
+	Vector4 result;
+
+	if (x > rhs.x)
+		result.x = x;
+	else
+		result.x = rhs.x;
+
+	if (y > rhs.y)
+		result.y = y;
+	else
+		result.y = rhs.y;
+
+	if (z > rhs.z)
+		result.z = z;
+	else
+		result.z = rhs.z;
+
+	if (w > rhs.w)
 		result.w = w;
 	else
 		result.w = rhs.w;
@@ -344,4 +344,28 @@ float Vector4::Distance(Vector4 pos1, Vector4 pos2)
 {
 	Vector4 diff = pos1 - pos2;
 	return diff.magnitude();
+}
+
+// Equel to operator
+bool Vector4::operator==(const Vector4 rhs)
+{
+	return (x == rhs.x && y == rhs.y && z == rhs.z && w == rhs.w);
+}
+
+// Not equel to operator
+bool Vector4::operator!=(const Vector4 rhs)
+{
+	return (x != rhs.x && y != rhs.y && z != rhs.z && w != rhs.w);
+}
+
+// Greater then or equel or operator
+bool Vector4::operator>=(const Vector4 rhs)
+{
+	return (x >= rhs.x && y >= rhs.y && z >= rhs.z && w >= rhs.w);
+}
+
+// Greater then or equel or operator
+bool Vector4::operator<=(const Vector4 rhs)
+{
+	return (x <= rhs.x && y <= rhs.y && z <= rhs.z && w <= rhs.w);
 }

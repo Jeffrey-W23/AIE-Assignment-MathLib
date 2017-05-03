@@ -171,3 +171,23 @@ Vector3 Matrix3::getScale()
 
 	return res;
 }
+
+// Get position
+Vector3 Matrix3::getPos()
+{
+	Vector3 result;
+	result.x = m[6];
+	result. y = m[7];
+
+	return result;
+}
+
+// Determinant
+float Matrix3::Determinant(const Matrix3& rhs)
+{
+	float res1 = m[0] * ((m[4] * m[8]) - (m[7] * m[5]));
+	float res2 = m[3] * ((m[1] * m[8]) - (m[7] * m[2]));
+	float res3 = m[6] * ((m[1] * m[5]) - (m[4] * m[2]));
+
+	return res1 - res2 + res3;
+}

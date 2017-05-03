@@ -39,5 +39,10 @@ public:
 	// Determinant
 	MATH_DLL float Determinant(const Matrix2& rhs);
 
-	float m[4];
+	// declare public floats for x and y. Union so we can use both a double array and single.
+	union
+	{
+		float m[4];
+		float a[2][2];
+	};
 };

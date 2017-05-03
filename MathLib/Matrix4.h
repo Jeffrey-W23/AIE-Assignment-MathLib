@@ -52,6 +52,17 @@ public:
 	// get scale
 	MATH_DLL Vector4 getScale();
 
-	float m[16];
+	// Get position
+	MATH_DLL Vector4 getPos();
+
+	// Determinant
+	MATH_DLL float Determinant(const Matrix4& rhs);
+
+	// declare public floats for x and y. Union so we can use both a double array and single.
+	union
+	{
+		float m[16];
+		float a[4][4];
+	};
 };
 

@@ -48,7 +48,18 @@ public:
 
 	// get scale
 	MATH_DLL Vector3 getScale();
+	
+	// Get position
+	MATH_DLL Vector3 getPos();
 
-	float m[9];
+	// Determinant
+	MATH_DLL float Determinant(const Matrix3& rhs);
+
+	// declare public floats for x and y. Union so we can use both a double array and single.
+	union
+	{
+		float m[9];
+		float a[3][3];
+	};
 };
 

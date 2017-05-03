@@ -223,12 +223,12 @@ Vector2 Vector2::Min(Vector2 rhs)
 {
 	Vector2 result;
 
-	if (x > rhs.x)
+	if (x < rhs.x)
 		result.x = x;
 	else
 		result.x = rhs.x;
 
-	if (y > rhs.y)
+	if (y < rhs.y)
 		result.y = y;
 	else
 		result.y = rhs.y;
@@ -241,12 +241,12 @@ Vector2 Vector2::Max(Vector2 rhs)
 {
 	Vector2 result;
 
-	if (x < rhs.x)
+	if (x > rhs.x)
 		result.x = x;
 	else
 		result.x = rhs.x;
 
-	if (y < rhs.y)
+	if (y > rhs.y)
 		result.y = y;
 	else
 		result.y = rhs.y;
@@ -276,4 +276,28 @@ float Vector2::Distance(Vector2 pos1, Vector2 pos2)
 {
 	Vector2 diff =  pos1 - pos2;
 	return diff.magnitude(); // change for vector 3 and 4
+}
+
+// Equel to operator
+bool Vector2::operator==(const Vector2 rhs)
+{
+	return (x == rhs.x && y == rhs.y);
+}
+
+// Not equel to operator
+bool Vector2::operator!=(const Vector2 rhs)
+{
+	return (x != rhs.x && y != rhs.y);
+}
+
+// Greater then or equel or operator
+bool Vector2::operator>=(const Vector2 rhs)
+{
+	return (x >= rhs.x && y >= rhs.y);
+}
+
+// Greater then or equel or operator
+bool Vector2::operator<=(const Vector2 rhs)
+{
+	return (x <= rhs.x && y <= rhs.y);
 }

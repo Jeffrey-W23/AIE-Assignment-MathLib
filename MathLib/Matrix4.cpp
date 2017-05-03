@@ -261,3 +261,22 @@ Vector4 Matrix4::getScale()
 
 	return res;
 }
+
+// Get position
+Vector4 Matrix4::getPos()
+{
+	Vector4 result;
+	result.x = m[12];
+	result.y = m[13];
+	result.z = m[14];
+
+	return result;
+}
+
+// Determinant
+float Matrix4::Determinant(const Matrix4& rhs)
+{
+	float res1 = (m[0] * m[3]);
+	float res2 = (m[2] * m[1]);
+	return res1 - res2;
+}

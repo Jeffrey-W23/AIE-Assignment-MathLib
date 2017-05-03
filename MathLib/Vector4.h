@@ -103,11 +103,31 @@ public:
 	// Get distance between 2 vectors.
 	MATH_DLL float Distance(Vector4 pos1, Vector4 pos2);
 
-	// declare public floats for x and y
-	float x;
-	float y;
-	float z;
-	float w;
+	// Equel to operator
+	MATH_DLL bool operator==(const Vector4 rhs);
+
+	// Not equel to operator
+	MATH_DLL bool operator!=(const Vector4 rhs);
+
+	// Greater then or equel or operator
+	MATH_DLL bool operator>=(const Vector4 rhs);
+
+	// Greater then or equel or operator
+	MATH_DLL bool operator<=(const Vector4 rhs);
+
+	// declare public floats for x and y. Union so we can use both an array and floats.
+	union
+	{
+		struct
+		{
+			float x;
+			float y;
+			float z;
+			float w;
+		};
+
+		float vec[4];
+	};
 };
 
 // Float multiplyed by vector ( out side of class so we can order )

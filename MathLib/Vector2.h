@@ -112,6 +112,9 @@ public:
 	// Greater then or equel or operator
 	MATH_DLL bool operator<=(const Vector2 rhs);
 
+	// Bezier
+	MATH_DLL Vector2 Bezier(float t, Vector2 a, Vector2 b, Vector2 c);
+
 	// declare public floats for x and y. Union so we can use both an array and floats.
 	union
 	{

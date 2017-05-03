@@ -301,3 +301,19 @@ bool Vector2::operator<=(const Vector2 rhs)
 {
 	return (x <= rhs.x && y <= rhs.y);
 }
+
+// Bezier
+Vector2 Vector2::Bezier(float t, Vector2 a, Vector2 b, Vector2 c)
+{
+
+
+	// DO FOR VECTOR2, 3 and 4
+
+
+	Vector2 result;
+	Vector2 ab = Lerp(a, b, t);
+	Vector2 bc = Lerp(b, c, t);
+	result = Lerp(ab, bc, t);
+
+	return result;
+}

@@ -276,7 +276,14 @@ Vector4 Matrix4::getPos()
 // Determinant
 float Matrix4::Determinant(const Matrix4& rhs)
 {
-	float res1 = (m[0] * m[3]);
-	float res2 = (m[2] * m[1]);
-	return res1 - res2;
+
+
+	// not complete
+
+	float res1 = m[0] * ((m[4] * m[8]) - (m[7] * m[5]));
+	float res2 = m[3] * ((m[1] * m[8]) - (m[7] * m[2]));
+	float res3 = m[6] * ((m[1] * m[5]) - (m[4] * m[2]));
+	return res1 - res2 + res3;
+
+
 }

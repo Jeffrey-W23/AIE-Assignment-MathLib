@@ -274,16 +274,47 @@ Vector4 Matrix4::getPos()
 }
 
 // Determinant
-float Matrix4::Determinant(const Matrix4& rhs)
+float Matrix4::Determinant()
 {
+	float res1 = m[0] * (m[5] * m[10] * m[15] - m[5] * m[11] * m[14] - m[6] * m[9] * m[15] + m[6] * m[11] * m[13] + m[7] * m[9] * m[14] - m[7] * m[10] * m[13]);
+	float res2 = m[1] * (m[4] * m[10] * m[15] - m[4] * m[11] * m[14] - m[6] * m[8] * m[15] + m[6] * m[11] * m[12] + m[7] * m[8] * m[14] - m[7] * m[10] * m[12]);
+	float res3 = m[2] * (m[4] * m[9] * m[15] - m[4] * m[11] * m[13] - m[5] * m[8] * m[15] + m[5] * m[11] * m[12] + m[7] * m[8] * m[13] - m[7] * m[9] * m[12]);
+	float res4 = m[3] * (m[4] * m[9] * m[14] - m[4] * m[10] * m[13] - m[5] * m[8] * m[14] + m[5] * m[10] * m[12] + m[6] * m[8] * m[13] - m[6] * m[9] * m[12]);
 
+	return res1 - res2 + res3 - res4;
+}
 
-	// not complete
+// isIdentity
+bool Matrix4::isIdentity()
+{
+	int count = 0;
 
-	float res1 = m[0] * ((m[4] * m[8]) - (m[7] * m[5]));
-	float res2 = m[3] * ((m[1] * m[8]) - (m[7] * m[2]));
-	float res3 = m[6] * ((m[1] * m[5]) - (m[4] * m[2]));
-	return res1 - res2 + res3;
+	for (int i = 0; i < 16; i++)
+	{
+		if (m[i] == 1 && i%5 == 0)
+		{
+			++count;
+		}
+		else if (m[i] == 0)
+		{
+			++count;
+		}
+	}
 
+	if (count == 16)
+		return true;
 
+	return false;
+}
+
+// Transpose  //TEST
+void Matrix4::Transpose()
+{
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			a[i][j] = a[j][i];
+		}
+	}
 }

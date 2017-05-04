@@ -342,3 +342,31 @@ bool Vector3::operator<=(const Vector3 rhs)
 {
 	return (x <= rhs.x && y <= rhs.y && z <= rhs.z);
 }
+
+// Bezier
+Vector3 Vector3::Bezier(float t, Vector3 a, Vector3 b, Vector3 c)
+{
+	Vector3 result;
+	Vector3 ab = Lerp(a, b, t);
+	Vector3 bc = Lerp(b, c, t);
+	result = Lerp(ab, bc, t);
+
+	return result;
+}
+
+// Hermite Curve
+Vector3 Vector3::hermiteCurve(Vector3 point0, Vector3 tangent0, Vector3 point1, Vector3 tangent1, float t)
+{
+	// calculate t-squared and t-cubed
+	float tsq = t * t;
+	float tcub = tsq * t;
+
+	// calculate the 4 basis functions
+	float h00 = 2 * tcub - 3 * tsq + 1;
+	float h01 = -2 * tcub + 3 * tsq;
+	float h10 = tcub - 2 * tsq + t;
+	float h11 = tcub - tsq;
+
+	// return the combined result
+	return h00 * point0 + h10 * tangent0 + h01 * point1 + h11 * tangent1;
+}

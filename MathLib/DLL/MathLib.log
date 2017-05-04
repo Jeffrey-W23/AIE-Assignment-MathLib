@@ -1,12 +1,5 @@
-﻿  Vector4.cpp
-  Vector3.cpp
-  Generating Code...
-  Compiling...
-  Matrix4.cpp
-  Matrix3.cpp
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  Vector2.cpp
+﻿  Matrix3.cpp
   Matrix2.cpp
+  Generating Code...
   MathLib.vcxproj -> C:\Users\s171043\Documents\GitHub\AIE-Assignment-MathLib\DLL\MathLib.dll
   MathLib.vcxproj -> C:\Users\s171043\Documents\GitHub\AIE-Assignment-MathLib\DLL\MathLib.pdb (Partial PDB)

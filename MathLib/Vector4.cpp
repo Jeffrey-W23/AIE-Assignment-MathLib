@@ -369,3 +369,31 @@ bool Vector4::operator<=(const Vector4 rhs)
 {
 	return (x <= rhs.x && y <= rhs.y && z <= rhs.z && w <= rhs.w);
 }
+
+// Bezier
+Vector4 Vector4::Bezier(float t, Vector4 a, Vector4 b, Vector4 c)
+{
+	Vector4 result;
+	Vector4 ab = Lerp(a, b, t);
+	Vector4 bc = Lerp(b, c, t);
+	result = Lerp(ab, bc, t);
+
+	return result;
+}
+
+// Hermite Curve
+Vector4 Vector4::hermiteCurve(Vector4 point0, Vector4 tangent0, Vector4 point1, Vector4 tangent1, float t)
+{
+	// calculate t-squared and t-cubed
+	float tsq = t * t;
+	float tcub = tsq * t;
+
+	// calculate the 4 basis functions
+	float h00 = 2 * tcub - 3 * tsq + 1;
+	float h01 = -2 * tcub + 3 * tsq;
+	float h10 = tcub - 2 * tsq + t;
+	float h11 = tcub - tsq;
+
+	// return the combined result
+	return h00 * point0 + h10 * tangent0 + h01 * point1 + h11 * tangent1;
+}

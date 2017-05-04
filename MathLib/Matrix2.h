@@ -37,7 +37,13 @@ public:
 	MATH_DLL Vector2 getScale();
 
 	// Determinant
-	MATH_DLL float Determinant(const Matrix2& rhs);
+	MATH_DLL float Determinant();
+
+	// isIdentity
+	MATH_DLL bool isIdentity();
+
+	// Transpose
+	MATH_DLL void Transpose();
 
 	// declare public floats for x and y. Union so we can use both a double array and single.
 	union

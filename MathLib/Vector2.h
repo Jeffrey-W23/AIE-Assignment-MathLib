@@ -115,6 +115,9 @@ public:
 	// Bezier
 	MATH_DLL Vector2 Bezier(float t, Vector2 a, Vector2 b, Vector2 c);
 
+	// Hermite Curve
+	MATH_DLL Vector2 hermiteCurve(Vector2 point0, Vector2 tangent0, Vector2 point1, Vector2 tangent1, float t);
+
 	// declare public floats for x and y. Union so we can use both an array and floats.
 	union
 	{

@@ -88,9 +88,44 @@ Vector2 Matrix2::getScale()
 }
 
 // Determinant
-float Matrix2::Determinant(const Matrix2& rhs)
+float Matrix2::Determinant()
 {
 	float res1 = (m[0] * m[3]);
 	float res2 = (m[2] * m[1]);
 	return res1 - res2;
+}
+
+// isIdentity
+bool Matrix2::isIdentity()
+{
+	int count = 0;
+
+	for (int i = 0; i < 4; i++)
+	{
+		if (m[i] == 1 && i % 5 == 0)
+		{
+			++count;
+		}
+		else if (m[i] == 0)
+		{
+			++count;
+		}
+	}
+
+	if (count == 4)
+		return true;
+
+	return false;
+}
+
+// Transpose  //TEST
+void Matrix2::Transpose()
+{
+	for (int i = 0; i < 2; i++)
+	{
+		for (int j = 0; j < 2; j++)
+		{
+			a[i][j] = a[j][i];
+		}
+	}
 }

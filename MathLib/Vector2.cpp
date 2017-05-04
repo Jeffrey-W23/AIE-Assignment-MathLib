@@ -305,15 +305,27 @@ bool Vector2::operator<=(const Vector2 rhs)
 // Bezier
 Vector2 Vector2::Bezier(float t, Vector2 a, Vector2 b, Vector2 c)
 {
-
-
-	// DO FOR VECTOR2, 3 and 4
-
-
 	Vector2 result;
 	Vector2 ab = Lerp(a, b, t);
 	Vector2 bc = Lerp(b, c, t);
 	result = Lerp(ab, bc, t);
 
 	return result;
+}
+
+// Hermite Curve
+Vector2 Vector2::hermiteCurve(Vector2 point0, Vector2 tangent0, Vector2 point1, Vector2 tangent1, float t) 
+{
+	// calculate t-squared and t-cubed
+	float tsq = t * t;
+	float tcub = tsq * t;
+
+	// calculate the 4 basis functions
+	float h00 = 2 * tcub - 3 * tsq + 1;
+	float h01 = -2 * tcub + 3 * tsq;
+	float h10 = tcub - 2 * tsq + t;
+	float h11 = tcub - tsq;
+
+	// return the combined result
+	return h00 * point0 + h10 * tangent0 + h01 * point1 + h11 * tangent1;
 }

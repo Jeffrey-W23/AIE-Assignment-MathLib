@@ -115,6 +115,11 @@ public:
 	// Greater then or equel or operator
 	MATH_DLL bool operator<=(const Vector4 rhs);
 
+	MATH_DLL Vector4 Bezier(float t, Vector4 a, Vector4 b, Vector4 c);
+
+	// Hermite Curve
+	MATH_DLL Vector4 hermiteCurve(Vector4 point0, Vector4 tangent0, Vector4 point1, Vector4 tangent1, float t);
+
 	// declare public floats for x and y. Union so we can use both an array and floats.
 	union
 	{

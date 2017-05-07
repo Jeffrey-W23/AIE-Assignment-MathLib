@@ -5,7 +5,4 @@
   Matrix3.cpp
   Matrix2.cpp
   Generating Code...
-c:\users\s171043\documents\github\aie-assignment-mathlib\mathlib\vector2.cpp(123): warning C4715: 'Vector2::Normalised': not all control paths return a value
-c:\users\s171043\documents\github\aie-assignment-mathlib\mathlib\vector3.cpp(143): warning C4715: 'Vector3::Normalised': not all control paths return a value
-c:\users\s171043\documents\github\aie-assignment-mathlib\mathlib\vector4.cpp(153): warning C4715: 'Vector4::Normalised': not all control paths return a value
-  MathLib.vcxproj -> C:\Users\s171043\Documents\GitHub\AIE-Assignment-MathLib\LIB\MathLib.lib
+  MathLib.vcxproj -> C:\Users\Thomas Wiltshire\Documents\GitHub\AIE-Assignment-MathLib\LIB\MathLib.lib

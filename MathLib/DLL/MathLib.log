@@ -1,5 +1,10 @@
-﻿  Matrix3.cpp
+﻿  Vector4.cpp
+  Vector3.cpp
+  Vector2.cpp
+  Matrix4.cpp
+  Matrix3.cpp
   Matrix2.cpp
   Generating Code...
-  MathLib.vcxproj -> C:\Users\s171043\Documents\GitHub\AIE-Assignment-MathLib\DLL\MathLib.dll
-  MathLib.vcxproj -> C:\Users\s171043\Documents\GitHub\AIE-Assignment-MathLib\DLL\MathLib.pdb (Partial PDB)
+     Creating library C:\Users\Thomas Wiltshire\Documents\GitHub\AIE-Assignment-MathLib\DLL\MathLib.lib and object C:\Users\Thomas Wiltshire\Documents\GitHub\AIE-Assignment-MathLib\DLL\MathLib.exp
+  MathLib.vcxproj -> C:\Users\Thomas Wiltshire\Documents\GitHub\AIE-Assignment-MathLib\DLL\MathLib.dll
+  MathLib.vcxproj -> C:\Users\Thomas Wiltshire\Documents\GitHub\AIE-Assignment-MathLib\DLL\MathLib.pdb (Partial PDB)

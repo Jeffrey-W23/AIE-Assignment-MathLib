@@ -1,5 +1,9 @@
+// #include, using, etc
 #include "Matrix2.h"
 
+//--------------------------------------------------------------------------------------
+// Default Constructor
+//--------------------------------------------------------------------------------------
 Matrix2::Matrix2()
 {
 	m[0] = 1;
@@ -8,6 +12,9 @@ Matrix2::Matrix2()
 	m[3] = 1;
 }
 
+//--------------------------------------------------------------------------------------
+// Constructor for passing in four floats.
+//--------------------------------------------------------------------------------------
 Matrix2::Matrix2(float Xx, float Xy, float Yx, float Yy)
 {
 	m[0] = Xx;
@@ -16,10 +23,21 @@ Matrix2::Matrix2(float Xx, float Xy, float Yx, float Yy)
 	m[3] = Yy;
 }
 
+//--------------------------------------------------------------------------------------
+// Default Destructor
+//--------------------------------------------------------------------------------------
 Matrix2::~Matrix2()
 {
 }
 
+//--------------------------------------------------------------------------------------
+// Multiply: Overloads the "*" operator so that you can multiply a Matrix by a Vector
+//
+// Param:
+//		rhs: The right hand side value being passed into the function that you want multiplied.
+// Return:
+//		Returns a Vector2 of the result.
+//--------------------------------------------------------------------------------------
 Vector2 Matrix2::operator*(const Vector2& rhs)
 {
 	Vector2 result;
@@ -30,6 +48,14 @@ Vector2 Matrix2::operator*(const Vector2& rhs)
 	return result;
 }
 
+//--------------------------------------------------------------------------------------
+// Multiply: Overloads the "*" operator so that you can multiply two Matrix toegther.
+//
+// Param:
+//		rhs: The right hand side value being passed into the function that you want multiplied.
+// Return:
+//		Returns a Matrix2 value of the result.
+//--------------------------------------------------------------------------------------
 Matrix2 Matrix2::operator*(const Matrix2& rhs)
 {
 	Matrix2 result;
@@ -43,19 +69,33 @@ Matrix2 Matrix2::operator*(const Matrix2& rhs)
 	return result;
 }
 
-// Sub-script operator returning a reference 
+//--------------------------------------------------------------------------------------
+// Sub-script operator returning a reference
+//
+// Param:
+//		rhs: takes in an int.
+// Return:
+//		Returns a Vector2.
+//--------------------------------------------------------------------------------------
 Vector2& Matrix2::operator[](const int rhs)
 {
 	return *(Vector2*)(m + 2 * rhs);
 }
 
+//--------------------------------------------------------------------------------------
 // Cast operator to float pointer
+//--------------------------------------------------------------------------------------
 Matrix2::operator float*()
 {
 	return &m[0];
 }
 
-// Set Rotation
+//--------------------------------------------------------------------------------------
+// Set Rotation for the matrix
+//
+// Param:
+//		a: float to rotate by.
+//--------------------------------------------------------------------------------------
 void Matrix2::setRotate(const float a)
 {
 	m[0] = cosf(a);
@@ -64,7 +104,13 @@ void Matrix2::setRotate(const float a)
 	m[3] = cosf(a);
 }
 
-// Set Scale
+//--------------------------------------------------------------------------------------
+// Set Scale: set the scale of the matrix
+//
+// Param:
+//		x: float for the x axis
+//		y: float for the y axis
+//--------------------------------------------------------------------------------------
 void Matrix2::setScale(const float x, const float y)
 {
 	m[0] = x;
@@ -73,7 +119,12 @@ void Matrix2::setScale(const float x, const float y)
 	m[3] = y;
 }
 
+//--------------------------------------------------------------------------------------
 // Get Scale
+//
+// Return:
+//		Returns a Vector2 of the scale of the matrix
+//--------------------------------------------------------------------------------------
 Vector2 Matrix2::getScale()
 {
 	Vector2 res;
@@ -87,7 +138,12 @@ Vector2 Matrix2::getScale()
 	return res;
 }
 
-// Determinant
+//--------------------------------------------------------------------------------------
+// Determinant: The determinant of the matrix.
+//
+// Return:
+//		Returns a float
+//--------------------------------------------------------------------------------------
 float Matrix2::Determinant()
 {
 	float res1 = (m[0] * m[3]);
@@ -95,7 +151,12 @@ float Matrix2::Determinant()
 	return res1 - res2;
 }
 
-// isIdentity
+//--------------------------------------------------------------------------------------
+// isIdentity: Check which one the Identity matrix is.
+//
+// Return:
+//		Returns a bool true or false if it is the identity matrix or not.
+//--------------------------------------------------------------------------------------
 bool Matrix2::isIdentity()
 {
 	int count = 0;
@@ -118,7 +179,9 @@ bool Matrix2::isIdentity()
 	return false;
 }
 
-// Transpose  //TEST
+//--------------------------------------------------------------------------------------
+// Transpose: get the transpose of this matrix.
+//--------------------------------------------------------------------------------------
 void Matrix2::Transpose()
 {
 	for (int i = 0; i < 2; i++)

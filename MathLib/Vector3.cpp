@@ -529,8 +529,8 @@ Vector3 Vector3::Clamp(Vector3 min, Vector3 max)
 {
 	Vector3 result;
 
-	result = this->Min(min);
-	result = result.Max(max);
+	result = this->Max(min);
+	result = result.Min(max);
 
 	return result;
 }

@@ -543,8 +543,8 @@ Vector4 Vector4::Clamp(Vector4 min, Vector4 max)
 {
 	Vector4 result;
 
-	result = this->Min(min);
-	result = result.Max(max);
+	result = this->Max(min);
+	result = result.Min(max);
 
 	return result;
 }
